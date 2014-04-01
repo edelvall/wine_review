@@ -1,0 +1,10 @@
+<h1>Wines</h1>
+<ol>
+<% @wines.each do |wine| %>
+<li>Name: <%= link_to(wine.name, wine) %>
+<br />Varietal: <%= wine.varietal %>
+<br />Winery: <%= wine.winery %>    
+</li>
+<% end %>
+</ol>
+
