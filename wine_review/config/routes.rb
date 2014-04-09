@@ -1,6 +1,9 @@
 WineReview::Application.routes.draw do
-  resources :wines
-
+  root 'wines#index'
+  resources :wines do
+    get 'page/:page', :action => :index, :on => :collection
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
