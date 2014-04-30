@@ -1,5 +1,7 @@
 class Wine < ActiveRecord::Base
 
+has_many :log_entries, dependent: :destroy
+
 scope :aged, -> { where('year < 1999') }
 scope :by, ->(name) { where('name = ?', name) }
 
@@ -12,6 +14,4 @@ validates :year, numericality: { only_integer: true },
    unless: "year.blank?"
 validates :varietal, :inclusion => { :in => VARIETALS }   	
 
-  #must have a constant VARIETALS [merlot, chianti, etc...]
-  #varietal is valid from list (hint: inclusion)
 end

@@ -9,3 +9,7 @@
 <%= button_to 'Delete', @wine,
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
+<p>
+  Read all
+  <%= link_to pluralize(@wine.log_entries.size, 'Log Entry'), wine_log_entries_path(@wine) %>
+</p>
